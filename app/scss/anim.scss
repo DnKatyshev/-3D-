@@ -1,0 +1,230 @@
+@import 'null-styles';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,900;1,400&display=swap');
+
+.container{
+    max-width: 1280px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+// Cursor - Styles
+*, 
+*:hover,
+*:focus,
+*:active{
+	cursor: none;
+} 
+.cursor{
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(#76d795, .1);
+    border: 1px solid;
+    border-color: rgba(#76d795, .3);
+    transition: all .2s ease-out;
+    user-select: none;
+	pointer-events: none;
+	z-index: 10000;
+}
+.cursor-active{
+	transform: scale(1.3);
+    background: rgba(#76d795, .2);
+}
+
+
+// 3D - animation
+$header-transition: all 3s cubic-bezier(.05,.51,.36,.95);
+$Font1: 'Roboto';
+
+
+.animation-header,
+.animation-form{
+    height: 100vh;
+    transform-style: preserve-3d;
+    transition: $header-transition;
+    will-change: transform;
+    text-align: center;
+}
+.animation-item {
+    position: absolute;
+    inset: -1px;
+    background-size: cover;
+    background-position: center;
+}
+.header {
+    // perspective: 1000px;
+    overflow: clip;
+    color: #fff;
+    background-color: #000;
+    font-family: $Font1;
+
+    &__layer-1 {
+        transform: translateZ(-70px);
+    }
+    &__layer-2 {
+        transform: translateZ(120px);
+    }
+    // блок с Текстом
+    &__layer-3 {
+        transform: translateZ(230px);
+        .header__menu{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 10px;
+        }
+        .header-nav__ul {
+            display: flex;
+            gap: 50px;
+        }
+        .header-nav__li a{
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .header__text{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            .header__heading {
+                font-size: clamp(35px, 3vw, 80px);
+            }
+            .header__technologies {
+                margin-bottom: 20px;
+                font-size: clamp(25px, 3vw, 60px);
+            }
+            .header__description {
+                margin-bottom: 50px;
+                font-size: 15px;
+                font-style: italic;
+            }
+            .header__button {
+                padding: 20px 40px;
+                background: transparent;
+                border: 3px solid rgba(255, 255, 255, 0.4);
+                border-radius: 40px;
+                opacity: .9;
+                color: #fff;
+                letter-spacing: 2px;
+            }
+        }
+
+    }
+
+    &__layer-4 {
+        transform: translateZ(180px);
+    }
+    &__layer-5 {
+        transform: translateZ(280px);
+    }
+    &__layer-4,  &__layer-5{
+        pointer-events: none;
+    }
+}
+
+
+// FORM
+.form{
+    font-family: $Font1;
+    background: #000;
+    &__bg{
+        transform: translateZ(-200px);
+    }
+
+    &__bee{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 80px;
+        height: 80px;
+        transform: translateZ(100px);
+        background-size: cover;
+        background-position: center;
+    }
+ 
+    &__main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 500px;
+        width: 100%;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        column-gap: 20px;
+        padding: 30px;
+        transform: translateX(-50%) translateY(-50%) translateZ(200px);
+        background: linear-gradient(133deg, #12C379 0%, rgba(5, 190, 179, 0.48) 100%);
+        .form__title{
+            text-align: center;
+            color: #fff;
+            font-size: clamp(30px, 3vw, 50px);
+            letter-spacing: 3px;
+        }
+        .form__group{
+
+        }
+        .form__label-block{
+            position: relative;
+        }
+        .form__input{
+            width: 100%;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            border-bottom: 2px solid #ffffff;
+        }
+        .form__label{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10px;
+            color: #fff;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+            user-select: none;
+            pointer-events: none;
+        }
+        .form__btn {
+            max-width: 280px;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+            padding: 12px 25px;
+            color: #fff;
+            background: linear-gradient(133deg, #18C8C8 0%, #19E891 100%);
+            letter-spacing: 5px;
+            font-weight: 900;
+            box-shadow: 4px 6px 20px 2px #275353;
+        }
+        .form__input:focus~label,
+        .form__input:not(:placeholder-shown)~label {
+            font-size: 10px;
+            top: 15%;
+            transform: translateY(-15%);
+            opacity: 0.7;
+        }
+    }
+
+}
+
+    //------------- валидация на чистом JS_Стили -------------
+    .error {
+        border-color:#6b6b6b;
+    }
+    .error-label {
+        color: rgb(19, 19, 19);
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 8px;
+    }
+
+    .form__error-block { 
+        position: relative; 
+    }
+
+
+    
+    
