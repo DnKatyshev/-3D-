@@ -64,6 +64,11 @@ function minjs(){
     .pipe(dest('dist/js'))
 }
 
+function extraJS(){
+    return src('app/js/js-extra-settings/*.js')
+    .pipe(dest('dist//js/js-extra-settings'))
+}
+
 function fonts(){
     return src('app/fonts/*')
     .pipe(fonter({formats: ['woff', 'ttf']}))
@@ -93,6 +98,7 @@ function watching(){   // Таск для авто-обновления всех
     gulp.watch(['app/scss/*.scss'], styles)
     gulp.watch(['app/img/**/*'], images)
     gulp.watch(['app/js/**/*.js'], minjs)
+    gulp.watch(['app/js/js-extra-settings/*.js'], extraJS)
     gulp.watch(['app/fonts/*'], fonts)
 }
 
@@ -101,13 +107,14 @@ exports.styles = styles
 exports.minjs = minjs
 exports.images = images
 exports.fonts = fonts
+exports.extraJS = extraJS
 // exports.host = host
 exports.cleaner = cleaner
 exports.watching = watching
 
 exports.default = gulp.series(
     cleaner,
-    gulp.parallel(html, styles, minjs, images, fonts), 
+    gulp.parallel(html, styles, minjs, images, fonts, extraJS), 
     gulp.parallel(watching)
 )
 

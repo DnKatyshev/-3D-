@@ -80,6 +80,10 @@ $Font1: 'Roboto';
         .header-nav__li a{
             color: #fff;
             opacity: 0.8;
+            transition: all .8s ease;
+            &:hover{
+                opacity: 1;
+            }
         }
 
         .header__text{
@@ -106,6 +110,10 @@ $Font1: 'Roboto';
                 opacity: .9;
                 color: #fff;
                 letter-spacing: 2px;
+                transition: all .8s ease;
+                &:hover{
+                    border: 3px solid rgba(255, 255, 255, 0.9)
+                }
             }
         }
 

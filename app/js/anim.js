@@ -37,8 +37,7 @@ cursorArray.forEach(c => {
 
 
 document.addEventListener('mousemove', e => {
-   
-    cursor.setAttribute("style", "top: "+(e.clientY - 17.5)+"px; left: "+(e.clientX - 17.5)+"px;")
+    cursor.style.cssText = `top: ${e.clientY - 17.5}px; left: ${e.clientX - 17.5}px`;
 })
 
 document.addEventListener('click', () => {
@@ -98,7 +97,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
         alert('Форма проверена успешно!')
     }
 })
-// Input-TMask
+// Input-Mask
 let formPhone = document.querySelector('#input-2')
 let im = new Inputmask('+7 (999) 999-99-99', {showMaskOnHover: false})
 im.mask(formPhone)
