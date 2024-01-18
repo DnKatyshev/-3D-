@@ -30,7 +30,9 @@
 	transform: scale(1.3);
     background: rgba(#76d795, .2);
 }
-
+::-webkit-scrollbar {
+    width: 0;
+  } 
 
 // 3D - animation
 $header-transition: all 3s cubic-bezier(.05,.51,.36,.95);
